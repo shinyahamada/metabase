@@ -42,9 +42,11 @@ export default class Session {
         };
 
         // response => {"id": "*******************"}
-        const res: Object = UrlFetchApp.fetch(this.sessionUrl, options);
+        const res = UrlFetchApp.fetch(this.sessionUrl, options);
 
-        return res
+        const content = JSON.parse(res);
+        
+        return content.id;
     }
 
 }
